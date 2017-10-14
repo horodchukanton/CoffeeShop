@@ -5,6 +5,7 @@ PROJECT_NAME=CoffeeShop
 PROJECT_DIR=/usr/bukinist
 PROJECT_LIB_DIR=${PROJECT_DIR}/lib
 SHEMA_PACKAGE=CoffeeShop::Schema
+TOKEN=''
 
 db_install:
 	mysqladmin create ${DB_NAME} || true
@@ -16,6 +17,10 @@ dbicdump:
    dbi:mysql:database=${DB_NAME} ${DB_USER} "${DB_PASS}"
    
 install:
-	TOKEN ?= $(shell bash -c 'read -s -p "Telegram token: " pwd; echo $$pwd')
-  cp ${PROJECT_DIR}/config.pl.default ${PROJECT_DIR}/config.pl
-  sed -i -i 's/%TOKEN%/${TOKEN}/' ${PROJECT_DIR}/config.pl
+	cp ${PROJECT_DIR}/config.pl.default ${PROJECT_DIR}/config.pl
+	echo
+	echo "##########################################################"
+	echo "You should fill default values in ${PROJECT_DIR}/config.pl"
+	echo "##########################################################"
+
+	
