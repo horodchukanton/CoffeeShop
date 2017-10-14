@@ -1,0 +1,8 @@
+{
+  name           => 'CoffeeShop',
+  language       => 'ukrainian',
+  TELEGRAM_TOKEN => '%TOKEN%',
+  TELEGRAM_DEBUG => 10,
+  interval       => 5,
+  hook_url       => ''
+}

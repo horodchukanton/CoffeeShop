@@ -14,3 +14,8 @@ db_install:
 dbicdump:
 	dbicdump -Ilib -o dump_directory=${PROJECT_LIB_DIR} -o preserve_case=1 ${SHEMA_PACKAGE} \
    dbi:mysql:database=${DB_NAME} ${DB_USER} "${DB_PASS}"
+   
+install:
+	TOKEN ?= $(shell bash -c 'read -s -p "Telegram token: " pwd; echo $$pwd')
+  cp ${PROJECT_DIR}/config.pl.default ${PROJECT_DIR}/config.pl
+  sed -i -i 's/%TOKEN%/${TOKEN}/' ${PROJECT_DIR}/config.pl
