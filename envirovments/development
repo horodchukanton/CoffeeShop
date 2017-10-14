@@ -1,0 +1,4 @@
+COFFEE_SHOP_DB=bukinist
+COFFEE_SHOP_DB_HOST=localhost
+COFFEE_SHOP_DB_USER=bukinist
+COFFEE_SHOP_DB_PASS=bukinist_dev

@@ -12,11 +12,21 @@ use warnings FATAL => 'all';
 
 =cut
 
+our $libpath;
+
 BEGIN {
   our $Bin;
   use FindBin '$Bin';
+  
+  $libpath = $Bin . '/../';
+  
   use lib $Bin;
+  use lib $Bin . '/../lib';
+  
 }
+
+
+
 
 use CoffeeShop::Customers::Test;
 use CoffeeShop::Goods::Test;

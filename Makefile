@@ -28,4 +28,5 @@ install:
 	$(info You should fill default values in ${PROJECT_DIR}/config.pl)
 	$(info ##########################################################)
 
-	
+test:
+	$(shell . ${PROJECT_DIR}/envirovments/development; perl ${PROJECT_DIR}/t/testclassrunner.t )

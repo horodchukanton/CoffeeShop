@@ -16,6 +16,19 @@ our @EXPORT = (@EXPORT_OK, qw/schema execute_raw_sql/);
 
 our $schema;
 
+my $envirovment_file = '/usr/bukinist/envirovments/development';
+if (-f $envirovment_file){
+  open (my $fh, '<', $envirovment_file) or die "Can't open file $@ \n";
+  while(<$fh>){
+    my ($k,$v) = split('=', $_);
+    if ($k && $v){
+      chomp($v);
+      $ENV{$k} = $v;
+    }
+  }
+}
+
+
 my $db_name = $ENV{'COFFEE_SHOP_DB'} || 'bukinist';
 my $db_host = $ENV{'COFFEE_SHOP_DB_HOST'} || 'localhost';
 my $db_user = $ENV{'COFFEE_SHOP_DB_USER'} || 'bukinist_db_user';

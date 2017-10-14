@@ -69,10 +69,10 @@ sub add_payment: Tests(4){
   ok ($customer->account == TEST_CUSTOMER_PARAMS->{account}, 'Customer account is fresh');
   
   # Add payment
-  my $new_balance = CoffeeShop::add_payment($customer->id, TEST_PAYMENT_SUM);
+  my $new_balance = CoffeeShop::Customers::add_payment($customer->id, TEST_PAYMENT_SUM);
   ok($new_balance && ($new_balance == TEST_CUSTOMER_PARAMS->{account} + TEST_PAYMENT_SUM), 'Balance sum is ok after payment');
   
-  my $balance_for_customer = CoffeeShop::get_customer_account($customer->id);
+  my $balance_for_customer = CoffeeShop::Customers::get_account($customer->id);
   ok($balance_for_customer && $balance_for_customer == $new_balance, 'Customers account returns new value');
   
   # Try to reset account
