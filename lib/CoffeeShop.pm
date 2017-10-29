@@ -10,7 +10,7 @@ use CoffeeShop::Customers;
 
 #use Telegram;
 
-my %STATUS = (
+my %ORDER_STATUS = (
   'CREATING'  => 0,
   'CREATED'   => 1,
   'CONFIRMED' => 2,
@@ -57,10 +57,9 @@ sub create_order {
   
   my CoffeeShop::Schema $Orders = resultset('Order');
   
-  # TODO Check this customer's desired drink name and size
   my CoffeeShop::Schema::Result::Order $new_order = $Orders->create({
     customer_id => $customer_id,
-    status_id   => $STATUS{CREATING}
+    status_id   => $ORDER_STATUS{CREATING}
   });
   
   return $new_order->id;
