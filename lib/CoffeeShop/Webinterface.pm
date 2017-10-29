@@ -10,4 +10,9 @@ get '/' => sub {
     return "Hello world";
   };
 
+get '/auth' => sub {
+    #    template 'index';
+    return "Auth page";
+  };
+
 1;
