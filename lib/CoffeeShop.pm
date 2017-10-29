@@ -7,7 +7,8 @@ use CoffeeShop::Schema::Result::Customer;
 
 use CoffeeShop::Customers;
 
-use Telegram;
+
+#use Telegram;
 
 my %STATUS = (
   'CREATING'  => 0,
@@ -28,12 +29,10 @@ sub start {
   my (%config) = @_;
   
   # Start telegram bot
-  my $TelegramBot = Telegram->new(%config);
-  
+#  my $TelegramBot = Telegram->new(%config);
   # Set authorize code
-  
-  $TelegramBot->start();
-  
+#  $TelegramBot->start();
+
 }
 
 #**********************************************************

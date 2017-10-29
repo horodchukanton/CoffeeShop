@@ -27,14 +27,8 @@ my $CONFIG = Config::Any::Perl->load($base_dir . 'config.pl');
 
 our %conf = %$CONFIG;
 
-my $condvar = AnyEvent->condvar();
-
 CoffeeShop::start(%conf);
-
-$SIG{INT} = sub {
-  $condvar->send(1);
-};
-
 print "Started $CONFIG->{name} \n";
 
-$condvar->recv()
+use CoffeeShop::Webinterface;
+CoffeeShop::Webinterface->dance();
