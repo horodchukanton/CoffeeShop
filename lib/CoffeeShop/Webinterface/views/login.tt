@@ -1,0 +1,7 @@
+<form method="post">
+	[% FAILED %]
+	<input type="hidden" name="redirect_url" value="/login?failed=1">
+	<input name="username" type="text">
+ 
+	<input type="submit">
+</form>
