@@ -67,4 +67,35 @@ sub create_order {
   return $new_order->id;
 }
 
+#**********************************************************
+=head2 send_message($admin_id, $message)
+
+  Arguments:
+    $admin_id, $message -
+    
+  Returns:
+  
+=cut
+#**********************************************************
+sub send_message {
+  my ( $admin_id, $message ) = @_;
+  
+  # use Telegram
+  
+  
+}
+
+
+#**********************************************************
+=head2 add_good()
+
+=cut
+#**********************************************************
+sub add_good {
+  my ($name, $price, $time_to_make) = @_;
+  
+  
+  
+}
+
 1;
