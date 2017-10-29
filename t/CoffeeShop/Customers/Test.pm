@@ -55,8 +55,6 @@ sub check_customer_info: Tests(no_plan) {
   my @keys = keys %{ $params };
   
   foreach my $key ( @keys ) {
-    next if ($key eq 'account');
-    
     my ($db_val, $test_val) = ($customer->$key(), TEST_CUSTOMER_PARAMS->{$key});
     ok($db_val eq $test_val, "$db_val eq $test_val. $key equals");
   }
