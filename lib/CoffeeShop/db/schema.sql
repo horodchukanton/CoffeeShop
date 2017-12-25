@@ -82,3 +82,39 @@ CREATE TABLE `orders_goods`
 
 )
   ENGINE InnoDB;
+
+CREATE TABLE `vendors`
+(
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(50) NOT NULL DEFAULT ''
+) COMMENT = 'Table for vendors',
+  ENGINE InnoDB;
+
+CREATE TABLE `stores`
+(
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(50) NOT NULL DEFAULT ''
+) COMMENT = 'Table for stores',
+  ENGINE InnoDB;
+
+CREATE TABLE `items`
+(
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(50) NOT NULL DEFAULT '',
+  `mesures` VARCHAR(30) NOT NULL DEFAULT ''
+) COMMENT = 'Table for items',
+  ENGINE InnoDB;
+
+CREATE TABLE `stores_accounting`
+(
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  `administrator_id` SMALLINT(6) REFERENCES administrators(id),
+  `vendor_id` INT UNSIGNED REFERENCES vendors(id),
+  `store_id` INT UNSIGNED REFERENCES stores(id),
+  `item_id` INT UNSIGNED REFERENCES items(id),
+  `units` INT UNSIGNED NOT NULL DEFAULT 0,
+  `sum_per_unit` DOUBLE(10, 2) NOT NULL DEFAULT '0.00',
+  `operation_type` TINYINT UNSIGNED NOT NULL DEFAULT 0
+) COMMENT = 'All stores accounting'
+  ENGINE InnoDB;
