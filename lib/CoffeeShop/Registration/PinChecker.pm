@@ -1,4 +1,4 @@
-package CoffeeShop::Registration;
+package CoffeeShop::Registration::PinChecker;
 use strict;
 use warnings FATAL => 'all';
 

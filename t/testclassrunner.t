@@ -27,7 +27,7 @@ BEGIN {
 
 use CoffeeShop::Customers::Test;
 use CoffeeShop::Goods::Test;
-use CoffeeShop::Registration::Test;
+use CoffeeShop::Registration::PinChecker::Test;
 
 Test::Class->runtests();
 
