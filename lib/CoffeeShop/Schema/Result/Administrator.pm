@@ -30,6 +30,12 @@ __PACKAGE__->table("administrators");
   is_auto_increment: 1
   is_nullable: 0
 
+=head2 login
+
+  data_type: 'varchar'
+  is_nullable: 0
+  size: 32
+
 =head2 name
 
   data_type: 'varchar'
@@ -60,6 +66,8 @@ __PACKAGE__->add_columns(
     is_auto_increment => 1,
     is_nullable => 0,
   },
+  "login",
+  { data_type => "varchar", is_nullable => 0, size => 32 },
   "name",
   { data_type => "varchar", is_nullable => 0, size => 128 },
   "chat_id",
@@ -104,8 +112,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07047 @ 2017-09-03 13:06:27
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:uWh8L9URUxsOmfx6e20KZg
+# Created by DBIx::Class::Schema::Loader v0.07039 @ 2017-10-29 17:47:56
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:eHKKJn9f6vNhAvhm/Gl7EQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

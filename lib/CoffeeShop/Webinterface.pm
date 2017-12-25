@@ -4,12 +4,16 @@ use warnings FATAL => 'all';
 
 
 use Dancer2;
-use CoffeeShop::DB qw/resultset/;
+use CoffeeShop::Webinterface::Auth;
+use Data::Dumper;
 
-set 'appdir' => '/usr/bukinist/lib/CoffeeShop/Webinterface';
+use CoffeeShop::Administrators;
+
+set 'appdir' => '/usr/CoffeeShop/lib/CoffeeShop/Webinterface';
 set 'views'  => config->{appdir} . "/views/";
 set 'layout' => 'main';
 set 'template' => 'TemplateToolkit';
+set 'session'  => 'YAML';
 
 get '/' => sub {
     session('user')
@@ -18,36 +22,14 @@ get '/' => sub {
     template index => {};
   };
 
-get '/login' => sub {
-#    use Data::Dumper;
-#    return Dumper(config);
-    my %TEMPLATE_PARAMS = ();
+get '/admins' => sub {
     
-    if(query_parameters->{'failed'}){
-      $TEMPLATE_PARAMS{FAILED} = 'Login not found';
-      
+    my @admins_list= CoffeeShop::Administrators::get_all();
+    my $return = '';
+    foreach my $admin (@admins_list){
+      $return .= $admin->name();
     }
-    
-    template login => \%TEMPLATE_PARAMS;
-  };
-
-post '/login' => sub {
-    
-    use Dancer2::Serializer::Dumper;
-    Dancer2::Serializer::Dumper->serialize(body_parameters);
-    my $username  = body_parameters->get('username');
-    my $redir_url = body_parameters->get('redirect_url') || '/login';
-    
-    my $Admin = resultset('Administrator');
-    my $admin = $Admin->find({id => $username});
-    
-    if($admin){
-      session user => $username;
-      redirect $redir_url;
-    }
-    else{
-      redirect '/login?failed=1';
-    }
+    return $return
   };
 
 1;
