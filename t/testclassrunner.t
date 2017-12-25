@@ -25,11 +25,9 @@ BEGIN {
   
 }
 
-
-
-
 use CoffeeShop::Customers::Test;
 use CoffeeShop::Goods::Test;
+use CoffeeShop::Registration::Test;
 
 Test::Class->runtests();
 
