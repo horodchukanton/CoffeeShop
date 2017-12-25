@@ -16,7 +16,7 @@ our @EXPORT = (@EXPORT_OK, qw/schema execute_raw_sql/);
 
 our $schema;
 
-my $envirovment_file = '/usr/bukinist/envirovments/development';
+my $envirovment_file = '/usr/CoffeeShop/envirovments/development';
 if (-f $envirovment_file){
   open (my $fh, '<', $envirovment_file) or die "Can't open file $@ \n";
   while(<$fh>){

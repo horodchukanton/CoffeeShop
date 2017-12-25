@@ -9,7 +9,7 @@ use Data::Dumper;
 
 use CoffeeShop::Administrators;
 
-set 'appdir' => '/usr/bukinist/lib/CoffeeShop/Webinterface';
+set 'appdir' => '/usr/CoffeeShop/lib/CoffeeShop/Webinterface';
 set 'views'  => config->{appdir} . "/views/";
 set 'layout' => 'main';
 set 'template' => 'TemplateToolkit';
