@@ -5,6 +5,7 @@ use warnings FATAL => 'all';
 
 use Dancer2;
 use CoffeeShop::Webinterface::Auth;
+use CoffeeShop::Webinterface::Storage;
 use Data::Dumper;
 
 use CoffeeShop::Administrators;
@@ -14,6 +15,7 @@ set 'views'  => config->{appdir} . "/views/";
 set 'layout' => 'main';
 set 'template' => 'TemplateToolkit';
 set 'session'  => 'YAML';
+prefix '/';
 
 get '/' => sub {
     session('user')
