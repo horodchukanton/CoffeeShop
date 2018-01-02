@@ -1,7 +1,19 @@
-<form method="post" action="/login">
-	[% FAILED %]
-	<input type="hidden" name="redirect_url" value="[% REDIRECT_URL %]">
-	<input name="username" type="text">
- 
-	<input type="submit">
-</form>
+
+<div class="container text-center">
+	<div class="row">
+  <div class="col-md-4 offset-md-4 text-center">
+    <form method="post" action="/login" class="">
+      <input type="hidden" name="redirect_url" value="[% REDIRECT_URL %]">
+	    <div class="form-group">
+			    <h3>[% FAILED %]</h3>
+	    </div>
+      <div class="form-group">
+        <input class="form-control" name="username" type="text" placeholder="Логин">
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-success btn-block" value="Войти">
+      </div>
+    </form>
+  </div>
+  </div>
+</div>

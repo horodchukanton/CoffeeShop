@@ -1,7 +1,10 @@
 <form method="post" action="/storage/vendors">
-	[% VENDORS %]
-	<h1>ADD VENDOR</h1>
-  <input name="vendor" type="text">
+  <div class="alert alert-primary" role="alert">
+    ADD VENDOR
+  </div>
+  <input class="button button-success" name="vendor" type="text">
 
   <input type="submit">
+	
+	[% VENDORS %]
 </form>

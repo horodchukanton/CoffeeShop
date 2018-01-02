@@ -1,2 +1,8 @@
-<a href="/admins">Admins</a>
-<h1>HELLO WORLD!</h1>
+<div class="alert alert-primary" role="alert">
+  HELLO WORLD!
+</div>
+
+<ul class="list-unstyled components">
+  <li><a class="btn btn-info btn-block col-md-2 form-group" href="/admins">Admins</a></li>
+  <li><a class="btn btn-info btn-block col-md-2 form-group" href="/logout">Logout</a></li>
+</ul>

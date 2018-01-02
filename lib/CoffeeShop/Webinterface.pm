@@ -12,9 +12,13 @@ use CoffeeShop::Administrators;
 
 set 'appdir' => '/usr/CoffeeShop/lib/CoffeeShop/Webinterface';
 set 'views'  => config->{appdir} . "/views/";
+set 'public_dir' => config->{appdir} . "/public/";
+set 'public' => config->{appdir} . "/public/";
+set 'static_handler' => true;
 set 'layout' => 'main';
 set 'template' => 'TemplateToolkit';
 set 'session'  => 'YAML';
+
 prefix '/';
 
 get '/' => sub {

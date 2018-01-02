@@ -24,7 +24,7 @@ get '/login' => sub {
     my %TEMPLATE_PARAMS = ( REDIRECT_URL => query_parameters->get('requested_path')  );
     
     if(query_parameters->{'failed'}){
-      $TEMPLATE_PARAMS{FAILED} = 'Login not found';
+      $TEMPLATE_PARAMS{FAILED} = '<div class="alert alert-danger" role="alert">LOGIN NOT FOUND</div>';
       
     }
     
